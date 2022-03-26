@@ -181,3 +181,10 @@ If you have UUIDs for them (which you should be using) use
 UUID=insert UUID
 ```
 instead of something like ``/dev/sda1``
+
+## Step 5: kernel
+Install the kernel sources and related utils you'll need
+```
+$ emerge --ask gentoo-sources pciutils genkernel cryptsetup
+```
+Be sure to accept the license for ``linux-firmware``!
