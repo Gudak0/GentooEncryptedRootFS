@@ -165,3 +165,7 @@ $ source /etc/profile
 ```
 
 From here on out, follow the AMD64 handbook up to generating a kernel
+
+!! IMPORTANT !!
+Make sure to configure /etc/portage/make.conf
+!! IMPORTANT !!
