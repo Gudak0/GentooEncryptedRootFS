@@ -126,4 +126,22 @@ Get the Stage 3 tarball of your choice and extract it to /mnt/gentoo using
 ```
 $ tar xpvf stage3*.tar.xz --xattrs-include='*.*' --numeric-owner
 ```
+From here, copy DNS information
+```
+$ cp --dereference /etc/resolv.conf /mnt/gentoo/etc
+```
+While the /mnt/gentoo directory is the active directory, run
+```
+$ mount -t proc /proc proc/
+$ mount --rbind /dev dev/
+$ mount --rbind /sys sys/
+$ mount --rbind /run run/
+```
+For the ``/dev``, ``/sys``, and ``/run`` partitions, if you run systemd, make sure to also do 
+```
+$ mount --make-rslave /mnt/gentoo/dev
+$ mount --make-rslave /mnt/gentoo/sys
+$ mount --make-rslave /mnt/gentoo/run
+``` 
+for those respective directories, else continue on to the next step
 
