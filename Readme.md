@@ -10,7 +10,7 @@ Here is how I partition my disks
 | Root            | LUKS   | Rest of Disk  | RootFS  |
 
 To partiton it we can do this
-### Step 1a: Parted
+### Step 1a: parted
 ```
 parted /dev/disklabel
 ```
