@@ -188,3 +188,15 @@ Install the kernel sources and related utils you'll need
 $ emerge --ask gentoo-sources pciutils genkernel cryptsetup
 ```
 Be sure to accept the license for ``linux-firmware``!
+
+Make sure to symlink the kernel
+```
+$ eselect kernel list
+$ eselect kernel set X
+```
+
+and then
+
+```
+$ genkernel --luks --lvm --no-zfs all
+```
