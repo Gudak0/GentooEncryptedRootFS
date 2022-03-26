@@ -10,6 +10,7 @@ Here is how I partition my disks
 | Root            | LUKS   | Rest of Disk  | RootFS  |
 
 To partiton it we can do this
+### Step 1a: Parted
 ```
 parted /dev/disklabel
 ```
@@ -23,9 +24,9 @@ Note with parted: make sure you point to the disk device and NOT a partiton, ver
 
 and here is the rest of the partitioning goes
 ```
-(parted) unit mb
+(parted) unit mib
 ```
-This tells Parted to write using megabytes
+This tells Parted to write using mebibyte
 ```
 (parted) mklabel gpt
 ```
@@ -46,7 +47,24 @@ To show our disk tabel, and if it looks write, do
 ```
 (parted) quit
 ```
-and check if the changes were made correctly by doing
+### Step 1b: cfdisk
+To create a disk using cfdisk, run
+```
+$ cfdisk /dev/sda
+```
+If it asks something related to the partition type, BE SURE TO SELECT GPT
+
+Now for partitioning
+
+1. Click New, and type 256M
+2. for /dev/sda1 thats 256M, go to Type, and set it to EFI System
+3. Allocate the rest of the disk to the root fs (/dev/sda2)
+4. Set the type for it to Linux Filesystem
+5. Select Write, and type Yes
+6. Click quit
+
+### Step 1c: Checking if our partitioning was correct
+To check if the changes were made correctly by doing
 ```
 fdisk -l
 ```
