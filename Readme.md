@@ -12,13 +12,13 @@ Here is how I partition my disks
 To partiton it we can do this
 ### Step 1a: parted
 ```
-parted /dev/disklabel
+$ parted /dev/disklabel
 ```
 in this example, and for the rest of the guide, the disk will be /dev/sda but it may be something like /dev/nvme0n1 for NVMe devices for example.
 
 So I would run
 ```
-parted /dev/sda
+$ parted /dev/sda
 ```
 Note with parted: make sure you point to the disk device and NOT a partiton, very important
 
@@ -66,12 +66,21 @@ Now for partitioning
 ### Step 1c: Checking if our partitioning was correct
 To check if the changes were made correctly by doing
 ```
-fdisk -l
+$ fdisk -l
 ```
 or
-``` lsblk ```
+``` 
+$ lsblk
+```
 To see if they were written correctly, if so, continue to Step 2 below
 
 ## Step 2: Writing Filesystems
 First off, make sure the dm-crypt module is loaded by running
-``` modprobe dm-crypt ```
+``` 
+$ moprobe dm-crypt
+```
+
+Create the filesystem for your EFI partition
+```
+$ mkfs.fat -F 32 /dev/sda1
+```
