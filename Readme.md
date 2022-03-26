@@ -93,3 +93,37 @@ Now open the encrypted drive with
 ```
 $ cryptsetup luksOpen /dev/sda2 lvm
 ```
+
+Create the LVM mapper
+```
+$ lvm pvcreate /dev/mapper/lvm 
+```
+
+And now to create our encrypted root partition
+```
+$ vgcreate vg0 /dev/mapper/lvm
+$ lvcreate -l 100%FREE -n root vg0
+```
+You could make /var and /home seperate but I'm going full rawdog and making it all the root partition
+
+and now to format it as EXT4
+```
+$ mkfs.ext4 /dev/mapper/vg0-root
+```
+
+## Step 3: Gentoo installation
+Make sure ```/mnt/gentoo``` exists. If you're using the official gentooo instllation media, it should exist, else run
+```
+$ mkdir /mnt/gentoo
+```
+
+Now mount the partition
+```
+$ mount /dev/mapper/vg0-root /mnt/gentoo
+```
+
+Get the Stage 3 tarball of your choice and extract it to /mnt/gentoo using
+```
+$ tar xpvf stage3*.tar.xz --xattrs-include='*.*' --numeric-owner
+```
+
