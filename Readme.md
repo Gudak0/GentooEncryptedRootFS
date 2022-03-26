@@ -84,3 +84,12 @@ Create the filesystem for your EFI partition
 ```
 $ mkfs.fat -F 32 /dev/sda1
 ```
+For the root partition
+```
+$ cryptsetup luksFormat /dev/sda2
+```
+After this you'll want to enter the passphrase, remember it otherwise good luck getting any data off of it
+Now open the encrypted drive with
+```
+$ cryptsetup luksOpen /dev/sda2 lvm
+```
