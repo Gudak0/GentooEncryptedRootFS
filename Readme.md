@@ -169,3 +169,15 @@ From here on out, follow this part of the [AMD64 Handbook](https://wiki.gentoo.o
 !! IMPORTANT !!
 Make sure to configure /etc/portage/make.conf
 !! IMPORTANT !!
+
+## Step 4: fstab
+Here is how ``/etc/fstab`` is configured
+```
+/dev/sda1             /boot vfat  noatime,defaults  0 1
+/dev/mapper/vg0-root  /     ext4  defaults          0 1
+```
+If you have UUIDs for them (which you should be using) use
+```
+UUID=insert UUID
+```
+instead of something like ``/dev/sda1``
