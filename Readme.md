@@ -164,7 +164,7 @@ now run
 $ source /etc/profile
 ```
 
-From here on out, follow the AMD64 handbook up to generating a kernel
+From here on out, follow this part of the [AMD64 Handbook](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base)
 
 !! IMPORTANT !!
 Make sure to configure /etc/portage/make.conf
