@@ -6,6 +6,6 @@ Here is how I partition my disks
 
 | Partition Name  | Format  | Size  | Type            |
 |-----------------|---------|-------|---              |
-| Boot            | fat32   | 256MB | EFI             |
-| Root            | LUIKS   | Rest of Disk  | RootFS  |
+| Boot            | FAT32   | 256MB | EFI             |
+| Root            | LUKS   | Rest of Disk  | RootFS  |
 
