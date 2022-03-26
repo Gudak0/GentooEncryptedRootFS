@@ -71,3 +71,7 @@ fdisk -l
 or
 ``` lsblk ```
 To see if they were written correctly, if so, continue to Step 2 below
+
+## Step 2: Writing Filesystems
+First off, make sure the dm-crypt module is loaded by running
+``` modprobe dm-crypt ```
