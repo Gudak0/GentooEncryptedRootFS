@@ -145,3 +145,23 @@ $ mount --make-rslave /mnt/gentoo/run
 ``` 
 for those respective directories, else continue on to the next step
 
+Now mount the SHM partitions
+```
+$ test -L /dev/shm && rm /dev/shm && mkdir /dev/shm 
+$ mount -t tmpfs -o nosuid,nodev,noexec shm /dev/shm 
+$ chmod 1777 /dev/shm
+```
+
+Chroot into the new installation using
+```
+$ chroot /mnt/gentoo /bin/bash
+```
+
+From this point on, any command that starts with ```(HOST)``` means you need to run the cmd on the host, otherwise everything else is ran in the chroot
+
+now run
+```
+$ source /etc/profile
+```
+
+From here on out, follow the AMD64 handbook up to generating a kernel
