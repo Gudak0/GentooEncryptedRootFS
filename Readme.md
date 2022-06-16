@@ -4,11 +4,11 @@ Written in an MD file on github since it looks nice. any additional files will a
 ## Step 1: Prepping disks
 Here is how I partition my disks
 
-| Partition Name  | Format  | Size  | Type            |
-|-----------------|---------|-------|---              |
-| Boot            | FAT32   | 256MB | EFI             |
-| Swap            | sw      | 8GB|    | swap  |
-| Root            | LUKS   | Rest of Disk  | RootFS  |
+| Partition Name  | Format  | Size          | Type            |
+|-----------------|---------|-------        |---              |
+| Boot            | FAT32   | 256MB         | EFI             |
+| Swap            | sw      | 8GB           | swap            |
+| Root            | LUKS    | Rest of Disk  | RootFS          |
 
 To partiton it we can do this
 ### Step 1a: parted
